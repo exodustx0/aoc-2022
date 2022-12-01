@@ -47,8 +47,9 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().IntVarP(&day, "day", "d", 0, "the AoC day")
-	rootCmd.Flags().BoolVarP(&examples, "test-examples", "e", false, "test on the example input")
+	f := rootCmd.Flags()
+	f.IntVarP(&day, "day", "d", -1, "the AoC day")
+	f.BoolVarP(&examples, "test-examples", "e", false, "test on the example input")
 	rootCmd.MarkFlagRequired("day")
 }
 
