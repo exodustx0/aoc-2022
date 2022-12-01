@@ -27,7 +27,7 @@ var (
 		Short: "Get input prompt for a given day.",
 		Use:   "getinput",
 		RunE: func(_ *cobra.Command, _ []string) error {
-			if time.Now().Before(time.Date(2022, 12, 2, 0, 0, 0, 0, time.FixedZone("UTC", -5*60*60))) {
+			if time.Now().Before(time.Date(2022, 12, day, 0, 0, 0, 0, time.FixedZone("UTC", -5*60*60))) {
 				return errors.New("puzzle not available yet")
 			}
 
