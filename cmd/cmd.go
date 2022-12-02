@@ -11,6 +11,7 @@ import (
 var (
 	days = [...]func(*bufio.Reader) error{
 		day01,
+		day02,
 	}
 	examples bool
 	day      int
