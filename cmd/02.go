@@ -3,18 +3,13 @@ package cmd
 import "bufio"
 
 func day02(input *bufio.Reader) error {
-	calcScore := func(you, foe byte) uint {
-		score := uint(you + 1)
-		switch (3 + you - foe) % 3 {
-		case 0:
-			score += 3
-		case 1:
-			score += 6
-		}
+	calcScore := func(you, foe byte) int {
+		score := int(you + 1)           // shape score
+		score += int(4+you-foe) % 3 * 3 // outcome score
 		return score
 	}
 
-	var score1, score2 uint
+	var score1, score2 int
 	s := bufio.NewScanner(input)
 	for s.Scan() {
 		str := s.Text()
