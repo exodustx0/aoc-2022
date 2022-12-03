@@ -7,3 +7,7 @@ These are my solutions to this year's [Advent of Code](https://adventofcode.com/
 ### Day 1
 
 4:15 PM — Yeah, screw learning Rust, I just want to get through the AoC. Go it is.
+
+### Day 3
+
+2:00 PM — Feels inelegant, but it's done and it works. Elegant enough to be understandable, I think.

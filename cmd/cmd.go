@@ -12,6 +12,7 @@ var (
 	days = [...]func(*bufio.Reader) error{
 		day01,
 		day02,
+		day03,
 	}
 	examples bool
 	day      int
