@@ -14,6 +14,7 @@ var (
 		day02,
 		day03,
 		day04,
+		day05,
 	}
 	examples bool
 	day      int
