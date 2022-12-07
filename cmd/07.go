@@ -13,9 +13,8 @@ type fileinfo struct {
 }
 
 type dirinfo struct {
-	name    string
 	parent  *dirinfo
-	subdirs []dirinfo
+	subdirs map[string]*dirinfo
 	files   []fileinfo
 }
 
@@ -23,8 +22,8 @@ func (d *dirinfo) allDirs(yield func(*dirinfo) bool) {
 	if !yield(d) {
 		return
 	}
-	for i := range d.subdirs {
-		d.subdirs[i].allDirs(yield)
+	for k := range d.subdirs {
+		d.subdirs[k].allDirs(yield)
 	}
 }
 
@@ -62,11 +61,9 @@ func day07(input *bufio.Reader) error {
 				}
 				cur = cur.parent
 			default:
-				for i := range cur.subdirs {
-					if cur.subdirs[i].name == arg {
-						cur = &cur.subdirs[i]
-						break
-					}
+				cur = cur.subdirs[arg]
+				if cur == nil {
+					panic("nil subdir")
 				}
 			}
 
@@ -83,7 +80,10 @@ func day07(input *bufio.Reader) error {
 				}
 
 				if typ == "dir" {
-					cur.subdirs = append(cur.subdirs, dirinfo{name: name, parent: cur})
+					if cur.subdirs == nil {
+						cur.subdirs = map[string]*dirinfo{}
+					}
+					cur.subdirs[name] = &dirinfo{parent: cur}
 				} else {
 					size, err := strconv.ParseUint(typ, 10, 64)
 					if err != nil {
