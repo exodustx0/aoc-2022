@@ -112,11 +112,11 @@ func day07(input *bufio.Reader) (partOne, partTwo any) {
 
 	smallestDelDirSize := uint(math.MaxUint)
 	root.allDirs(func(d *dirinfo) bool {
-		if size := d.size(); size < spaceNeeded {
+		size := d.size()
+		if size < spaceNeeded {
 			return false
-		} else if size < smallestDelDirSize {
-			smallestDelDirSize = size
 		}
+		smallestDelDirSize = min(smallestDelDirSize, size)
 		return true
 	})
 
