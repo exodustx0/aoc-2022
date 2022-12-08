@@ -1,10 +1,8 @@
 package cmd
 
-import (
-	"bufio"
-)
+import "bufio"
 
-func day08(input *bufio.Reader) error {
+func day08(input *bufio.Reader) (partOne, partTwo any) {
 	var treemap []byte
 	var w int
 	s := bufio.NewScanner(input)
@@ -73,8 +71,7 @@ func day08(input *bufio.Reader) error {
 		highestScenicScore = max(highestScenicScore, north*east*south*west)
 	}
 
-	partOne(visibleCount)
-	partTwo(highestScenicScore)
-
-	return nil
+	partOne = visibleCount
+	partTwo = highestScenicScore
+	return
 }

@@ -5,10 +5,10 @@ import (
 	"io"
 )
 
-func day06(input *bufio.Reader) error {
+func day06(input *bufio.Reader) (partOne, partTwo any) {
 	var buf [14]byte
 	if _, err := io.ReadFull(input, buf[:4]); err != nil {
-		return err
+		panic(err)
 	}
 
 	havePacketMarker := func() bool {
@@ -37,15 +37,15 @@ func day06(input *bufio.Reader) error {
 	for ; !havePacketMarker(); i++ {
 		var err error
 		if buf[i&3], err = input.ReadByte(); err != nil {
-			return err
+			panic(err)
 		}
 	}
 
-	partOne(i)
+	partOne = i
 
 	copy(buf[10+(i&3):], buf[i&3:4])
 	if _, err := io.ReadFull(input, buf[i&3:10+i&3]); err != nil {
-		return err
+		panic(err)
 	}
 
 	j := i &^ 3
@@ -54,11 +54,10 @@ func day06(input *bufio.Reader) error {
 	for ; !haveMessageMarker(); i++ {
 		var err error
 		if buf[i%14], err = input.ReadByte(); err != nil {
-			return err
+			panic(err)
 		}
 	}
 
-	partTwo(i + j)
-
-	return nil
+	partTwo = i + j
+	return
 }

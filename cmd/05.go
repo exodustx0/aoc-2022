@@ -24,7 +24,7 @@ func (cs *crateStack) push9001(p []rune) {
 	*cs = append(*cs, p...)
 }
 
-func day05(input *bufio.Reader) error {
+func day05(input *bufio.Reader) (partOne, partTwo any) {
 	type rearrangement struct {
 		count, from, to byte
 	}
@@ -85,8 +85,7 @@ func day05(input *bufio.Reader) error {
 		tops9001 += string(stacksCopy[i][n])
 	}
 
-	partOne(tops)
-	partTwo(tops9001)
-
-	return nil
+	partOne = tops
+	partTwo = tops9001
+	return
 }

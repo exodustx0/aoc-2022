@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func day01(input *bufio.Reader) error {
+func day01(input *bufio.Reader) (partOne, partTwo any) {
 	s := bufio.NewScanner(input)
 
 	var calories uint64
@@ -20,7 +20,7 @@ func day01(input *bufio.Reader) error {
 
 		c, err := strconv.ParseUint(str, 10, 64)
 		if err != nil {
-			return err
+			panic(err)
 		}
 
 		calories += c
@@ -43,8 +43,7 @@ func day01(input *bufio.Reader) error {
 		}
 	}
 
-	partOne(most[0])
-	partTwo(most[0] + most[1] + most[2])
-
-	return nil
+	partOne = most[0]
+	partTwo = most[0] + most[1] + most[2]
+	return
 }

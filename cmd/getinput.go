@@ -15,8 +15,8 @@ const goDayTmpl = `package cmd
 
 import "bufio"
 
-func day%02d(input *bufio.Reader) error {
-	return nil
+func day%02d(input *bufio.Reader) (partOne, partTwo any) {
+	return
 }
 `
 

@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func day04(input *bufio.Reader) error {
+func day04(input *bufio.Reader) (partOne, partTwo any) {
 	getSectionRange := func(str string) [2]uint {
 		startStr, endStr, ok := strings.Cut(str, "-")
 		if !ok {
@@ -58,8 +58,7 @@ func day04(input *bufio.Reader) error {
 		}
 	}
 
-	partOne(redundancyCount)
-	partTwo(overlapCount)
-
-	return nil
+	partOne = redundancyCount
+	partTwo = overlapCount
+	return
 }

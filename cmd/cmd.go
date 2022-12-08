@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	days = [...]func(*bufio.Reader) error{
+	days = [...]func(*bufio.Reader) (partOne, partTwo any){
 		day01,
 		day02,
 		day03,
@@ -48,7 +48,10 @@ var (
 			}
 			defer f.Close()
 
-			return days[day](bufio.NewReader(f))
+			partOne, partTwo := days[day](bufio.NewReader(f))
+			fmt.Println("Part one:", partOne)
+			fmt.Println("Part two:", partTwo)
+			return nil
 		},
 	}
 )

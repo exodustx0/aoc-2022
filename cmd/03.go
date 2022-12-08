@@ -2,7 +2,7 @@ package cmd
 
 import "bufio"
 
-func day03(input *bufio.Reader) error {
+func day03(input *bufio.Reader) (partOne, partTwo any) {
 	var rucksacks [][2]map[byte]uint
 
 	s := bufio.NewScanner(input)
@@ -35,7 +35,7 @@ func day03(input *bufio.Reader) error {
 		}
 	}
 
-	partOne(prioritySum)
+	partOne = prioritySum
 
 	prioritySum = 0
 groupLoop:
@@ -55,7 +55,6 @@ groupLoop:
 		}
 	}
 
-	partTwo(prioritySum)
-
-	return nil
+	partTwo = prioritySum
+	return
 }

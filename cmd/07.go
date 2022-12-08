@@ -38,7 +38,7 @@ func (d dirinfo) size() uint {
 	return size
 }
 
-func day07(input *bufio.Reader) error {
+func day07(input *bufio.Reader) (partOne, partTwo any) {
 	var root dirinfo
 	cur := &root
 	s := bufio.NewScanner(input)
@@ -87,7 +87,7 @@ func day07(input *bufio.Reader) error {
 				} else {
 					size, err := strconv.ParseUint(typ, 10, 64)
 					if err != nil {
-						return err
+						panic(err)
 					}
 					cur.files = append(cur.files, fileinfo{name, uint(size)})
 				}
@@ -103,7 +103,7 @@ func day07(input *bufio.Reader) error {
 		return true
 	})
 
-	partOne(smallSizesSum)
+	partOne = smallSizesSum
 
 	spaceNeeded := root.size() - 40_000_000
 	if spaceNeeded > 70_000_000 {
@@ -120,7 +120,6 @@ func day07(input *bufio.Reader) error {
 		return true
 	})
 
-	partTwo(smallestDelDirSize)
-
-	return nil
+	partTwo = smallestDelDirSize
+	return
 }
