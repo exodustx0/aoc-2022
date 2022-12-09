@@ -2,8 +2,7 @@ package cmd
 
 import (
 	"bufio"
-	"strconv"
-	"strings"
+	"fmt"
 )
 
 type knotPoint struct{ x, y int }
@@ -40,9 +39,10 @@ func day09(input *bufio.Reader) (partOne, partTwo any) {
 
 	s := bufio.NewScanner(input)
 	for s.Scan() {
-		moveStr, stepsStr, ok := strings.Cut(s.Text(), " ")
-		if !ok {
-			panic("no space-separation")
+		var moveStr string
+		var steps uint
+		if n, err := fmt.Sscanf(s.Text(), "%s %d", &moveStr, &steps); n != 2 || err != nil {
+			panic(err)
 		}
 
 		var move knotPoint
@@ -57,11 +57,6 @@ func day09(input *bufio.Reader) (partOne, partTwo any) {
 			move = knotPoint{0, 1}
 		default:
 			panic("unknown move")
-		}
-
-		steps, err := strconv.ParseUint(stepsStr, 10, 8)
-		if err != nil {
-			panic(err)
 		}
 
 		for ; steps > 0; steps-- {

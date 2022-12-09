@@ -2,33 +2,10 @@ package cmd
 
 import (
 	"bufio"
-	"strconv"
-	"strings"
+	"fmt"
 )
 
 func day04(input *bufio.Reader) (partOne, partTwo any) {
-	getSectionRange := func(str string) [2]uint {
-		startStr, endStr, ok := strings.Cut(str, "-")
-		if !ok {
-			panic("no range separator")
-		}
-
-		start, err := strconv.ParseUint(startStr, 10, 64)
-		if err != nil {
-			panic(err)
-		}
-		end, err := strconv.ParseUint(endStr, 10, 64)
-		if err != nil {
-			panic(err)
-		}
-
-		if start > end {
-			panic("range not low-to-high")
-		}
-
-		return [2]uint{uint(start), uint(end)}
-	}
-
 	contains := func(first, second [2]uint) bool {
 		return first[0] >= second[0] && first[1] <= second[1]
 	}
@@ -41,12 +18,12 @@ func day04(input *bufio.Reader) (partOne, partTwo any) {
 	var overlapCount uint
 	s := bufio.NewScanner(input)
 	for s.Scan() {
-		firstStr, secondStr, ok := strings.Cut(s.Text(), ",")
-		if !ok {
-			panic("no pair separator")
+		var start1, end1, start2, end2 uint
+		if n, err := fmt.Sscanf(s.Text(), "%d-%d,%d-%d", &start1, &end1, &start2, &end2); n != 4 || err != nil {
+			panic(err)
 		}
 
-		first, second := getSectionRange(firstStr), getSectionRange(secondStr)
+		first, second := [2]uint{start1, end1}, [2]uint{start2, end2}
 		if contains(first, second) || contains(second, first) {
 			redundancyCount++
 			overlapCount++
