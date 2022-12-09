@@ -15,3 +15,10 @@ func max[T constraints.Ordered](x, y T) T {
 	}
 	return x
 }
+
+func abs[T constraints.Signed](x T) T {
+	if x < 0 {
+		return -x
+	}
+	return x
+}

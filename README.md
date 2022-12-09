@@ -15,3 +15,7 @@ These are my solutions to this year's [Advent of Code](https://adventofcode.com/
 ### Day 5
 
 11:15 AM — Had to rush rush rush cause of other commitments but I did it. I can't help but feel like there's a much more efficient way to do this, but it eludes me and I am momentarily not allowed the time to work that out. Maybe I'll revisit later on in the month and find the improved efficiency.
+
+### Day 9
+
+1:00 AM — Took me an embarrassingly long time to realise what my mistake was with part 2, and I'm sure there's a more elegant way to do it (specifically `(*knotPoint).follow()`), but I'm satisfied nonetheless.
