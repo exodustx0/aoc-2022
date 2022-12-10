@@ -18,4 +18,8 @@ These are my solutions to this year's [Advent of Code](https://adventofcode.com/
 
 ### Day 9
 
-1:00 AM — Took me an embarrassingly long time to realise what my mistake was with part 2, and I'm sure there's a more elegant way to do it (specifically `(*knotPoint).follow()`), but I'm satisfied nonetheless.
+1:00 PM — Took me an embarrassingly long time to realise my mistake in part 2, and I'm sure I can simplify the code flow of `(*knotPoint).follow()` more, but I'm satisfied nonetheless.
+
+### Day 10
+
+2:00 PM — Yesssssssss this is exactly the kinda puzzle I love! It went by super quickly, but it was sweet. Also gosh bless the shout-out to Retro Game Mechanics Explained.
