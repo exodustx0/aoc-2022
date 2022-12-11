@@ -30,19 +30,7 @@ func day01(input *bufio.Reader) (partOne, partTwo any) {
 		elfs = append(elfs, calories)
 	}
 
-	var most [3]uint64
-	for _, c := range elfs {
-		for i, m := range most {
-			if c > m {
-				if i != len(most)-1 {
-					copy(most[i+1:], most[i:])
-				}
-				most[i] = c
-				break
-			}
-		}
-	}
-
+	most := maxSlice(elfs, 3)
 	partOne = most[0]
 	partTwo = most[0] + most[1] + most[2]
 	return
