@@ -23,3 +23,9 @@ These are my solutions to this year's [Advent of Code](https://adventofcode.com/
 ### Day 10
 
 2:00 PM — Yesssssssss this is exactly the kinda puzzle I love! It went by super quickly, but it was sweet. Also gosh bless the shout-out to Retro Game Mechanics Explained.
+
+### Day 11
+
+3:40 PM — I will freely admit that I've relied on a tip from a friend to get part 2 done; I would've never come up with it otherwise. I'm fine with this, not because it got me another star to my total for this year, but because it allowed me to learn something new. So yeah, today was a mess, and I think my code certainly looks the part, but I'm OK. This is OK. This is fine.
+
+![this-is-fine.png](https://cdn3.emoji.gg/emojis/6680_this_is_fine.png)

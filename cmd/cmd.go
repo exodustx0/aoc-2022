@@ -20,6 +20,7 @@ var (
 		day08,
 		day09,
 		day10,
+		day11,
 	}
 	examples bool
 	day      int
