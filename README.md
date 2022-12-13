@@ -35,3 +35,7 @@ WARNING: SPOILERS AHEAD.
 ### Day 12
 
 5:00 PM — Path-finding, nice, something I know a bit about but have little experience implementing. I've been slowed down by private life, as well as by just taking more time than I needed, and in the end, after figuring out how to solve for part 2, I chose to skip it, for now at least. I think choosing A* over Dijkstra might've been my downfall. Though I won't exclude just being wholly out of it as an option. Again, I might revisit another day. However, for this one in particular, don't count on it.
+
+### Day 13
+
+3:40 PM — Hnnnnngh, I feel _so satisfied right now._ What a delightful puzzle.
