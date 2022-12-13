@@ -51,9 +51,7 @@ func day13(input *bufio.Reader) (partOne, partTwo any) {
 	for s.Scan() {
 		p, _ := parseList(s.Text(), 1)
 		packets = append(packets, p)
-		if !s.Scan() {
-			panic("unexpected end of input")
-		}
+		s.Scan()
 
 		p, _ = parseList(s.Text(), 1)
 		packets = append(packets, p)
